@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import initMd from 'markdown-element';
 import initTooltip from './tooltip';
+import style from './main.css';
 
 initTooltip();

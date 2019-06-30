@@ -6,40 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
     <title>Tooltip</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            font-family: 'Montserrat';
-            width: 90%;
-            margin: 0 auto;
-            display: grid;
-        }
-        .item {
-            padding: 50px;
-            margin: auto;
-            border: 2px solid black;
-            margin: 20px;
-        }
-        .tooled {
-            padding: 10px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 20px;
-            border: 2px dotted rgb(180, 190, 37);
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <div class="item">
             <h2>Transclusion - on mouse over</h2>
 
-            <span class="tooled" id="klikacz">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span> 
-            <tool-tip tooltip-for="klikacz">
+            <span class="tooled" id="simpleTooltip">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span> 
+            <tool-tip tooltip-for="simpleTooltip">
                 <span>Nice span</span>
                 <button>Click</button>
             </tool-tip>
@@ -53,15 +27,13 @@
                     <span>Nice span</span>
                     <button>Click</button>
                 </tool-tip>
-            </div>
+        </div>
 
         <div class="item">
             <h2>Content - on mouse over</h2>
 
             <span class="tooled" id="hoverer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span> 
             <tool-tip tooltip-for="hoverer" content="Nice content">
-                <span>Nice span</span>
-                <button>click</button>
             </tool-tip>
         </div>
         
