@@ -22,13 +22,14 @@
             padding: 50px;
             margin: auto;
             border: 2px solid black;
+            margin: 20px;
         }
         .tooled {
             padding: 10px;
             font-weight: bold;
-            text-align: center;
+            display: inline-block;
             margin-top: 20px;
-            border: 1px dotted black;
+            border: 2px dotted rgb(180, 190, 37);
         }
     </style>
 </head>
@@ -37,30 +38,30 @@
         <div class="item">
             <h2>Transclusion - on mouse over</h2>
 
-            <span class="tooled" id="klikacz">KLIKAJfsdfsdfsdfsdfsdTU</span> 
+            <span class="tooled" id="klikacz">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span> 
             <tool-tip tooltip-for="klikacz">
-                <span>NAPIS</span>
-                <button>pik</button>
+                <span>Nice span</span>
+                <button>Click</button>
             </tool-tip>
         </div>
 
         <div class="item">
-                <h2>Transclusion - on mouse over</h2>
+                <h2>Transclusion - on click</h2>
     
-                <span class="tooled" id="clicker">KLIKAJfsdfsdfdasdasdasdasdassdfsdfsdTU</span> 
+                <span class="tooled" id="clicker">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span> 
                 <tool-tip tooltip-for="clicker" clicked>
-                    <span>NAPIS</span>
-                    <button>pik</button>
+                    <span>Nice span</span>
+                    <button>Click</button>
                 </tool-tip>
             </div>
 
         <div class="item">
-            <h2>on mouse over</h2>
+            <h2>Content - on mouse over</h2>
 
-            <span class="tooled" id="hoverer">KLIKAfdsJTU</span> 
-            <tool-tip tooltip-for="hoverer" content="fajny tekscik">
-                <span>NAPIS</span>
-                <button>pik</button>
+            <span class="tooled" id="hoverer">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span> 
+            <tool-tip tooltip-for="hoverer" content="Nice content">
+                <span>Nice span</span>
+                <button>click</button>
             </tool-tip>
         </div>
         

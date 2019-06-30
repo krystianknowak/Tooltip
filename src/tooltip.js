@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
@@ -83,16 +84,18 @@ class Tooltip extends HTMLElement {
     });
 
     if (this._clicked === true) {
-      console.log('klik');
       this._tooledObj.addEventListener('click', () => {
         tooltip.style.top = `${this._tooledObj.offsetTop - window.scrollY - rect.height + 5}px`;
         tooltip.style.left = `${this._tooledObj.offsetLeft - window.scrollX - (tooltipRect.width - rect.width) / 2}px`;
         tooltip.style.visibility = 'visible';
         tooltip.style.opacity = '1';
       });
-      this._tooledObj.addEventListener('focusout', () => {
-        tooltip.style.visibility = 'hidden';
-        tooltip.style.opacity = '0';
+      document.addEventListener('click', (e) => {
+        const isClickInside = this._tooledObj.contains(e.target);
+        if (!isClickInside) {
+          tooltip.style.visibility = 'hidden';
+          tooltip.style.opacity = '0';
+        }
       });
     } else {
       this._tooledObj.addEventListener('mouseover', () => {
