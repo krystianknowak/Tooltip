@@ -4,48 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
     <title>Tooltip</title>
     <style>
-        .container {
-            /* background-color: rgba(10, 10, 10, 0.493); */
-            position: relative;
-            margin-top: 100px;
-            margin-left: 300px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        #wziumx {
-            margin-left: 500px;
+        .container {
+            font-family: 'Montserrat';
+            width: 90%;
+            margin: 0 auto;
+            display: grid;
+        }
+        .item {
+            padding: 50px;
+            margin: auto;
+            border: 2px solid black;
+        }
+        .tooled {
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            border: 1px dotted black;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>GÓRA</h1>
-        <button id="klikacz">KLIKAJTU</button> 
-        <tool-tip tooltip-for="klikacz">
-            <span>NAPIS</span>
-            <button>pik</button>
-        </tool-tip>
-        <h1>DÓŁ</h1>
+        <div class="item">
+            <h2>Transclusion - on mouse over</h2>
 
-
-        <h1>GÓRA</h1>
-        <span id="ziutek">KLIKAJTU</span> 
-        <tool-tip tooltip-for="ziutek">
-            <span>NAPIS</span>
-            <button>pik</button>
-        </tool-tip>
-        <h1>DÓŁ</h1>
-
-
-        <div id="wziumx">
-            <h1>GÓRA</h1>
-            <button id="wzium">KLIKAJTU</button> 
-            <tool-tip tooltip-for="wzium" clicked>
+            <span class="tooled" id="klikacz">KLIKAJfsdfsdfsdfsdfsdTU</span> 
+            <tool-tip tooltip-for="klikacz">
                 <span>NAPIS</span>
                 <button>pik</button>
             </tool-tip>
-            <h1>DÓŁ</h1>
         </div>
+
+        <div class="item">
+                <h2>Transclusion - on mouse over</h2>
+    
+                <span class="tooled" id="clicker">KLIKAJfsdfsdfdasdasdasdasdassdfsdfsdTU</span> 
+                <tool-tip tooltip-for="clicker" clicked>
+                    <span>NAPIS</span>
+                    <button>pik</button>
+                </tool-tip>
+            </div>
+
+        <div class="item">
+            <h2>on mouse over</h2>
+
+            <span class="tooled" id="hoverer">KLIKAfdsJTU</span> 
+            <tool-tip tooltip-for="hoverer" content="fajny tekscik">
+                <span>NAPIS</span>
+                <button>pik</button>
+            </tool-tip>
+        </div>
+        
         
     </div>
 </body>

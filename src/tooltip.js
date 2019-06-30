@@ -8,10 +8,11 @@ class Tooltip extends HTMLElement {
     this.shadow = this.attachShadow({ mode: 'open' });
     this._tooledObj = {};
     this._clicked = false;
+    this._content = null;
   }
 
   static get observedAttributes() {
-    return ['tooltip-for', 'clicked'];
+    return ['tooltip-for', 'clicked', 'content'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -21,8 +22,8 @@ class Tooltip extends HTMLElement {
   async render() {
     this.clean();
     this._clicked = this.getAttribute('clicked') !== null;
+    this._content = this.getAttribute('content');
     this._tooledObj = document.getElementById(this.getAttribute('tooltip-for'));
-    console.log(this._tooledObj.offsetTop);
   }
 
   clean() {
@@ -35,11 +36,12 @@ class Tooltip extends HTMLElement {
 
   createShadow() {
     const rect = this._tooledObj.getBoundingClientRect();
+    const toolContent = this._content == null ? this.innerHTML : this._content;
     const template = `
       <style>
         .tooltip {
           width:160px;
-          background-color: rgba(10, 10, 10, 0.493);
+          background-color: rgba(10, 10, 10, 0.900);
           box-shadow: 1px 1px 3px rgba(90, 90, 90, 0.541);
           position: fixed;
           top: 0;
@@ -62,16 +64,18 @@ class Tooltip extends HTMLElement {
           margin-left: -5px;
           border-width: 5px;
           border-style: solid;
-          border-color: rgba(10, 10, 10, 0.493) transparent transparent transparent;
+          border-color: rgba(10, 10, 10, 0.900) transparent transparent transparent;
         }
       </style>
   
       <div class="tooltip">
-          ${this.innerHTML}
+          ${toolContent}
       </div>
       `;
     this.shadow.innerHTML = template;
     const tooltip = this.shadow.querySelector('.tooltip');
+
+    const tooltipRect = tooltip.getBoundingClientRect();
 
     window.addEventListener('scroll', () => {
       tooltip.style.visibility = 'hidden';
@@ -79,9 +83,10 @@ class Tooltip extends HTMLElement {
     });
 
     if (this._clicked === true) {
+      console.log('klik');
       this._tooledObj.addEventListener('click', () => {
-        tooltip.style.top = `${this._tooledObj.offsetTop - window.scrollY + 100 - rect.height * 2}px`;
-        tooltip.style.left = `${rect.x - (rect.width / 2)}px`;
+        tooltip.style.top = `${this._tooledObj.offsetTop - window.scrollY - rect.height + 5}px`;
+        tooltip.style.left = `${this._tooledObj.offsetLeft - window.scrollX - (tooltipRect.width - rect.width) / 2}px`;
         tooltip.style.visibility = 'visible';
         tooltip.style.opacity = '1';
       });
@@ -91,8 +96,8 @@ class Tooltip extends HTMLElement {
       });
     } else {
       this._tooledObj.addEventListener('mouseover', () => {
-        tooltip.style.top = `${this._tooledObj.offsetTop - window.scrollY + 100 - rect.height * 2}px`;
-        tooltip.style.left = `${rect.x - (rect.width / 2)}px`;
+        tooltip.style.top = `${this._tooledObj.offsetTop - window.scrollY - rect.height + 5}px`;
+        tooltip.style.left = `${this._tooledObj.offsetLeft - window.scrollX - (tooltipRect.width - rect.width) / 2}px`;
         tooltip.style.visibility = 'visible';
         tooltip.style.opacity = '1';
       });

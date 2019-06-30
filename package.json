@@ -10,7 +10,9 @@
   },
   "author": "Krystian Nowak",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "markdown-element": "^2.0.2"
+  },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
