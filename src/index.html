@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tooltip</title>
+    <style>
+        .container {
+            /* background-color: rgba(10, 10, 10, 0.493); */
+            position: relative;
+            margin-top: 100px;
+            margin-left: 300px;
+        }
+        #wziumx {
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GÓRA</h1>
+        <button id="klikacz">KLIKAJTU</button> 
+        <tool-tip tooltip-for="klikacz">
+            <span>NAPIS</span>
+            <button>pik</button>
+        </tool-tip>
+        <h1>DÓŁ</h1>
+
+
+        <h1>GÓRA</h1>
+        <span id="ziutek">KLIKAJTU</span> 
+        <tool-tip tooltip-for="ziutek">
+            <span>NAPIS</span>
+            <button>pik</button>
+        </tool-tip>
+        <h1>DÓŁ</h1>
+
+
+        <div id="wziumx">
+            <h1>GÓRA</h1>
+            <button id="wzium">KLIKAJTU</button> 
+            <tool-tip tooltip-for="wzium" clicked>
+                <span>NAPIS</span>
+                <button>pik</button>
+            </tool-tip>
+            <h1>DÓŁ</h1>
+        </div>
+        
+    </div>
+</body>
+</html>
