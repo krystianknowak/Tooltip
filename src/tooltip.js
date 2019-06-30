@@ -85,7 +85,7 @@ class Tooltip extends HTMLElement {
 
     if (this._clicked === true) {
       this._tooledObj.addEventListener('click', () => {
-        tooltip.style.top = `${this._tooledObj.offsetTop - window.scrollY - rect.height + 5}px`;
+        tooltip.style.top = `${this._tooledObj.offsetTop - window.scrollY - tooltipRect.height - 2}px`;
         tooltip.style.left = `${this._tooledObj.offsetLeft - window.scrollX - (tooltipRect.width - rect.width) / 2}px`;
         tooltip.style.visibility = 'visible';
         tooltip.style.opacity = '1';
@@ -99,7 +99,7 @@ class Tooltip extends HTMLElement {
       });
     } else {
       this._tooledObj.addEventListener('mouseover', () => {
-        tooltip.style.top = `${this._tooledObj.offsetTop - window.scrollY - rect.height + 5}px`;
+        tooltip.style.top = `${this._tooledObj.offsetTop - window.scrollY - tooltipRect.height - 2}px`;
         tooltip.style.left = `${this._tooledObj.offsetLeft - window.scrollX - (tooltipRect.width - rect.width) / 2}px`;
         tooltip.style.visibility = 'visible';
         tooltip.style.opacity = '1';
